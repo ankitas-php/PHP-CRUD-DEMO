@@ -8,7 +8,7 @@
 
 [1] Clone this repository
 
-	> git clone https://github.com/ankita-acquaintsoft/PHP-CRUD-DEMO.git
+	> git clone https://github.com/ankitas-php/PHP-CRUD-DEMO.git
 
 [2] Create a database named "php_crud" and run the below queries :
 
