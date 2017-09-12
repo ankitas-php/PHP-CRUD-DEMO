@@ -106,22 +106,18 @@ class crud {
 
 		$users_list_Arr[$counterUsers]['status'] = $status;
 
-		$action = '<div class="">';
-		$action .= '<a href="edit-data.php?edit_id=' . $row['id'] . '"><i class="glyphicon glyphicon-edit"></i></a>';
-		$action .= '<a onclick="delete_user(\'' . $row['id'] . '\')"><i class="glyphicon glyphicon-remove-circle"></i></a>';
+		$action = '<div class="" style="padding:10px;">';
+		$action .= '<a href="edit-data.php?edit_id=' . $row['id'] . '" style="margin-right:5px;"><i class="glyphicon glyphicon-edit"></i></a>';
+		$action .= '<a onclick="delete_user(\'' . $row['id'] . '\')" style="margin-right:5px;"><i class="glyphicon glyphicon-remove-circle"></i></a>';
 		$action .= '</div>';
 		$users_list_Arr[$counterUsers]['action'] = $action;
 		$counterUsers++;
 	    }
 	    $dataArray = array("num_row" => $num_rows, "users" => $users_list_Arr);
-	    return $dataArray;
 	} else {
-	    ?>
-	    <tr>
-	        <td colspan="6" style="text-align: center;">No data found</td>
-	    </tr>
-	    <?php
+	    $dataArray = array("num_row" => 0, "users" => array());
 	}
+	return $dataArray;
     }
 
     public function paging($query, $records_per_page) {

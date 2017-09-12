@@ -70,9 +70,6 @@
 	    "bFilter": true,
 	    "order": [[ORDER_ROW, ORDER_TYPE]],
 	    "retrieve": true,
-	    "preDrawCallback": function(settings) {
-		$("#loading").show();
-	    },
 	    "oLanguage": {
 		"sProcessing": '<div id="loading"><img id="loading-image" src="assets/images/ajax-loader.gif" alt="Loading..."> </div>'
 	    },
@@ -83,16 +80,52 @@
 		$.getJSON(sSource, aoData, function(json) {
 		    if (json.error != '') {
 			alert(json.error);
+			$('#loading').hide();
 		    } else {
 			fnCallback(json);
 			$('.user_status').bootstrapToggle();
 			dataTableAction();
 		    }
-		    $('#loading').hide();
 		});
 	    },
 	});
     }
+
+    $("#addRecord").on('click', function() {
+
+	if ($("#first_name").val() == '') {
+	    alert('Please enter first name.');
+	    $("#first_name").focus();
+	    return false;
+	}
+	if ($("#last_name").val() == '') {
+	    alert('Please enter last name.');
+	    $("#last_name").focus();
+	    return false;
+	}
+	if (!validateEmail($("#email_id").val())) {
+	    alert('Please enter valid email address.');
+	    $("#email_id").focus();
+	    return false;
+	}
+	if (!validateContact($("#contact_no").val())) {
+	    alert('Please enter valid contact number.');
+	    $("#contact_no").focus();
+	    return false;
+	}
+	else {
+	    $("form#add_user").submit();
+	}
+    });
+    function validateEmail(email) {
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return re.test($.trim(email));
+    }
+    function validateContact(contact) {
+	var filter = /^\d*(?:\.\d{1,2})?$/;
+	return filter.test($.trim(contact));
+    }
+
 
 </script>
 </body>

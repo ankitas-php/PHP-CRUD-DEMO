@@ -42,33 +42,33 @@ if (isset($_GET['inserted'])) {
 <div class="container">
 
 
-    <form method='post'>
+    <form method='post' name="add_user" id="add_user">
 
 	<table class='table table-bordered'>
 
 	    <tr>
 		<td>First Name</td>
-		<td><input type='text' name='first_name' class='form-control' required></td>
+		<td><input type='text' name='first_name' id='first_name' class='form-control'></td>
 	    </tr>
 
 	    <tr>
 		<td>Last Name</td>
-		<td><input type='text' name='last_name' class='form-control' required></td>
+		<td><input type='text' name='last_name' id='last_name' class='form-control'></td>
 	    </tr>
 
 	    <tr>
 		<td>Your E-mail ID</td>
-		<td><input type='text' name='email_id' class='form-control' required></td>
+		<td><input type='text' name='email_id' id='email_id' class='form-control'></td>
 	    </tr>
 
 	    <tr>
 		<td>Contact No</td>
-		<td><input type='text' name='contact_no' class='form-control' required></td>
+		<td><input type='text' name='contact_no' id='contact_no' class='form-control'></td>
 	    </tr>
 
 	    <tr>
 		<td colspan="2">
-		    <button type="submit" class="btn btn-primary" name="btn-save">
+		    <button class="btn btn-primary" name="btn-save" id="addRecord">
 			<span class="glyphicon glyphicon-plus"></span> Create New Record
 		    </button>  
 		    <a href="index.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; Back to index</a>
